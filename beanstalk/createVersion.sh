@@ -7,7 +7,7 @@ VERSION=$2
 echo "SHA1: $SHA1"
 echo "BRANCH: $VERSION"
 
-EB_BUCKET=express-test 
+EB_BUCKET=express-test
 SOURCE_BUNDLE="${VERSION}.zip"
 S3_KEY="ET/${SOURCE_BUNDLE}"
 
