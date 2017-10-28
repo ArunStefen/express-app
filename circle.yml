@@ -11,4 +11,4 @@ deployment:
     branch: master
     commands:
       - echo "Copying package because merging to master..."
-      - sh beanstalk/createVersion.sh `git describe --abbrev=0 --tags`
+      - sh beanstalk/createVersion.sh $CIRCLE_SHA1 $CIRCLE_BRANCH
