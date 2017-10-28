@@ -1,6 +1,11 @@
 #!/bin/sh
 
-VERSION=$1
+SHA1=$1
+
+VERSION=$2
+
+echo "SHA1: $SHA1"
+echo "BRANCH: $VERSION"
 
 EB_BUCKET=express-test
 SOURCE_BUNDLE="${VERSION}.zip"
