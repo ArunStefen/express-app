@@ -1,10 +1,6 @@
 machine:
-  services:
-    - docker
-
-dependencies:
-  override:
-    - docker info
+   node:
+    version: 4.0.0
 
 deployment:
   develop:
@@ -14,4 +10,5 @@ deployment:
   master:
     branch: master
     commands:
-      - echo "Deploying from deploy..."
+      - echo "Copying package because merging to master..."
+      - sh beanstalk/createVersion.sh `git describe --abbrev=0 --tags`
