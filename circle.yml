@@ -1,0 +1,17 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+
+deployment:
+  develop:
+    branch: develop
+    commands:
+      - echo "Deploying from develop..."
+  master:
+    branch: master
+    commands:
+      - echo "Deploying from deploy..."
