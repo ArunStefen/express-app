@@ -2,4 +2,4 @@ To create a new IM version use ./createVersion.sh giving it the dockerhub image 
 
 ./createVersion.sh develop
 
-The script assumes it is being run from this directory fine.
+The script assumes it is being run from this directory fine is fine.
