@@ -4,8 +4,10 @@ VERSION=$1
 BRANCH=$2
 
 echo "VERSION: $VERSION"
+echo "BRANCH: $BRANCH"
 
 if [ "$BRANCH" == /release-.*/ ]; then
+	echo "BRANCH: $BRANCH"
 	VERSION = "$BRANCH"
 	SOURCE_BUNDLE="${VERSION}.zip"
 	S3_KEY="release/${SOURCE_BUNDLE}"
@@ -13,6 +15,8 @@ else
 	SOURCE_BUNDLE="${VERSION}.zip"
 	S3_KEY="$BRANCH/${SOURCE_BUNDLE}"
 fi
+
+echo "S3_KEY: $S3_KEY"
 
 EB_BUCKET=express-test-ovc
 
