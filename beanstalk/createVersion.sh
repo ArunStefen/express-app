@@ -12,6 +12,7 @@ if [ "$BRANCH" == /release-.*/ ]; then
 else
 	SOURCE_BUNDLE="${VERSION}.zip"
 	S3_KEY="$BRANCH/${SOURCE_BUNDLE}"
+fi
 
 EB_BUCKET=express-test-ovc
 
