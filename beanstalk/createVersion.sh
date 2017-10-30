@@ -1,25 +1,19 @@
 #!/bin/sh
 
-VERSION=$2
-BRANCH=$1
+VERSION=$1
+BRANCH=$2
 
 echo "VERSION: $VERSION"
 echo "BRANCH: $BRANCH"
 
-if [ "$BRANCH" == /release-.*/ ] 
+if [ "$BRANCH" ]
 then
-	echo "BRANCH: $BRANCH"
-	VERSION = "$BRANCH"
-	SOURCE_BUNDLE="${VERSION}.zip"
-	S3_KEY="release/${SOURCE_BUNDLE}"
-else
-	SOURCE_BUNDLE="${VERSION}.zip"
-	S3_KEY="$BRANCH/${SOURCE_BUNDLE}"
+	VERSION=${VERSION}_${BRANCH}
 fi
 
-echo "S3_KEY: $S3_KEY"
-
 EB_BUCKET=express-test-ovc
+SOURCE_BUNDLE="${VERSION}.zip"
+S3_KEY="ET/${SOURCE_BUNDLE}"
 
 sed -i -e "s/:TAGNAME/:$VERSION/" beanstalk/Dockerrun.aws.json
 zip -r "$SOURCE_BUNDLE"  beanstalk/Dockerrun.aws.json beanstalk/.ebextensions/
