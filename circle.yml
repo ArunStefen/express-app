@@ -11,9 +11,9 @@ deployment:
     branch: /release-.*/
     commands:
       - echo "Updating package because committing to release..."
-      - ./beanstalk/createVersion.sh $CIRCLE_SHA1 ${CIRCLE_BRANCH#*-}
+      - ./createPackage.sh $CIRCLE_SHA1 ${CIRCLE_BRANCH#*-}
   master:
     branch: master
     commands:
       - echo "Copying package because merging to master..."
-      - ./beanstalk/createVersion.sh `git describe --abbrev=0 --tags`
+      - ./createPackage.sh `git describe --abbrev=0 --tags`
