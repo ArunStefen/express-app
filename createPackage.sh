@@ -8,7 +8,7 @@ then
 	VERSION=${VERSION}_${BRANCH}
 fi
 
-EB_BUCKET=xpress-test-ovc
+EB_BUCKET=express-test-ovc
 SOURCE_BUNDLE="${VERSION}.zip"
 S3_KEY="IM/${SOURCE_BUNDLE}"
 
