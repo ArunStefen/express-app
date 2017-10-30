@@ -7,6 +7,11 @@ deployment:
     branch: develop
     commands:
       - echo "Deploying from develop..."
+  release:
+    branch: /release-.*/
+    commands:
+      - echo "Updating package because committing to release..."
+      - sh beanstalk/createVersion.sh `git describe --abbrev=0 --tags` $CIRCLE_BRANCH
   master:
     branch: master
     commands:

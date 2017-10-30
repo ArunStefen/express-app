@@ -1,13 +1,19 @@
 #!/bin/sh
 
 VERSION=$1
+BRANCH=$2
 
-echo "SHA1: $SHA1"
-echo "BRANCH: $VERSION"
+echo "VERSION: $VERSION"
+
+if [ "$BRANCH" == /release-.*/ ]
+	VERSION = "$BRANCH"
+	SOURCE_BUNDLE="${VERSION}.zip"
+	S3_KEY="release/${SOURCE_BUNDLE}"
+else
+	SOURCE_BUNDLE="${VERSION}.zip"
+	S3_KEY="$BRANCH/${SOURCE_BUNDLE}"
 
 EB_BUCKET=express-test-ovc
-SOURCE_BUNDLE="${VERSION}.zip"
-S3_KEY="ET/${SOURCE_BUNDLE}"
 
 sed -i -e "s/:TAGNAME/:$VERSION/" beanstalk/Dockerrun.aws.json
 zip -r "$SOURCE_BUNDLE"  beanstalk/Dockerrun.aws.json beanstalk/.ebextensions/
