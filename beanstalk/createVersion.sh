@@ -1,12 +1,13 @@
 #!/bin/sh
 
-VERSION=$1
-BRANCH=$2
+VERSION=$2
+BRANCH=$1
 
 echo "VERSION: $VERSION"
 echo "BRANCH: $BRANCH"
 
-if [ "$BRANCH" == /release-.*/ ]; then
+if [ "$BRANCH" == /release-.*/ ] 
+then
 	echo "BRANCH: $BRANCH"
 	VERSION = "$BRANCH"
 	SOURCE_BUNDLE="${VERSION}.zip"

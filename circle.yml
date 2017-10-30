@@ -13,9 +13,9 @@ deployment:
       - echo "Updating package because committing to release..."
       - echo "CIRCLE_BRANCH______$CIRCLE_BRANCH"
       - echo "GIT___ `git describe --abbrev=0 --tags`"
-      - sh beanstalk/createVersion.sh `git describe --abbrev=0 --tags` $CIRCLE_BRANCH
+      - sh beanstalk/createVersion.sh $CIRCLE_BRANCH `git describe --abbrev=0 --tags`
   master:
     branch: master
     commands:
       - echo "Copying package because merging to master..."
-      - sh beanstalk/createVersion.sh `git describe --abbrev=0 --tags` $CIRCLE_BRANCH
+      - sh beanstalk/createVersion.sh $CIRCLE_BRANCH `git describe --abbrev=0 --tags`
