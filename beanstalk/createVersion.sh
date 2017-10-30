@@ -1,9 +1,15 @@
 #!/bin/sh
 
 VERSION=$1
+BRANCH=$2
 
-echo "SHA1: $SHA1"
-echo "BRANCH: $VERSION"
+echo "VERSION: $VERSION"
+echo "BRANCH: $BRANCH"
+
+if [ "$BRANCH" ]
+then
+	VERSION=${VERSION}_${BRANCH}
+fi
 
 EB_BUCKET=express-test-ovc
 SOURCE_BUNDLE="${VERSION}.zip"
