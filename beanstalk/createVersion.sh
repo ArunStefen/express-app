@@ -5,7 +5,7 @@ BRANCH=$2
 
 echo "VERSION: $VERSION"
 
-if [ "$BRANCH" == /release-.*/ ]
+if [ "$BRANCH" == /release-.*/ ]; then
 	VERSION = "$BRANCH"
 	SOURCE_BUNDLE="${VERSION}.zip"
 	S3_KEY="release/${SOURCE_BUNDLE}"
