@@ -10,7 +10,7 @@ fi
 
 EB_BUCKET=express-test-ovc
 SOURCE_BUNDLE="${VERSION}.zip"
-S3_KEY="IM/${SOURCE_BUNDLE}"
+S3_KEY="IM/IM_${SOURCE_BUNDLE}"
 
 cd beanstalk/
 sed -i -e "s/:TAGNAME/:$VERSION/" Dockerrun.aws.json
