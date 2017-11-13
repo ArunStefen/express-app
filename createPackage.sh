@@ -12,9 +12,11 @@ EB_BUCKET=express-test-ovc
 SOURCE_BUNDLE="${VERSION}.zip"
 S3_KEY="IM/${SOURCE_BUNDLE}"
 
-sed -i -e "s/:TAGNAME/:$VERSION/" beanstalk/Dockerrun.aws.json
-zip -r "$SOURCE_BUNDLE"  beanstalk/Dockerrun.aws.json beanstalk/.ebextensions/
-sed -i -e "s/:$VERSION/:TAGNAME/" beanstalk/Dockerrun.aws.json
+cd beanstalk/
+sed -i -e "s/:TAGNAME/:$VERSION/" Dockerrun.aws.json
+zip -r "$SOURCE_BUNDLE"  Dockerrun.aws.json .ebextensions/
+sed -i -e "s/:$VERSION/:TAGNAME/" Dockerrun.aws.json
+cd-
 
 export AWS_DEFAULT_REGION=us-east-1
 # cp "$SOURCE_BUNDLE" "beanstalk/$SOURCE_BUNDLE"
